@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import CurrentWeather from "./CurrentWeather";
-import MockData from "./MockData";
+import CurrentWeather from "./CurrentWeather.js";
+import MockData, { data } from "./MockData";
 
 class App extends Component {
   render() {
@@ -13,14 +13,15 @@ class App extends Component {
           <h1 className="App-title">Welcome to Weathrly</h1>
         </header>
         <form>
+          <input type="text" />
           <input type="submit" />
         </form>
-        <MockData />
+        {/* <MockData />
         <Search />
-        <Card />
-        <CurrentWeather />
-        <SevenHour />
-        <TenDay />
+        <Card /> */}
+        <CurrentWeather currentWeather={data.current_observation} />
+        {/* <SevenHour />
+        <TenDay /> */}
       </div>
     );
   }
