@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import CurrentWeather from "./CurrentWeather.js";
 import Key from "./key.js";
+import Search from "./Search.js";
 
 class App extends Component {
   constructor() {
