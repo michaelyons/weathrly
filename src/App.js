@@ -1,27 +1,49 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import CurrentWeather from "./CurrentWeather.js";
-import MockData, { data } from "./MockData";
+import Key from "./key.js";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      location: '',
+      currentWeather: []  
+    };
+
+    this.getData = this.getData.bind(this);
+  }
+
+  getData() {
+    fetch(
+      `http://api.wunderground.com/api/${Key}/conditions/geolookup/hourly/forecast10day/q/CA/San_Diego.json`
+    )
+      .then(data => data.json())
+      .then(data => console.log(data))
+      .catch(error => {
+        throw new Error(error);
+      });
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+
   render() {
+    if (this.state.currentWeather === undefined) {
+      return <div>Data Loading</div>;
+    }
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Weathrly</h1>
         </header>
         <form>
           <input type="text" />
           <input type="submit" />
         </form>
-        {/* <MockData />
-        <Search />
-        <Card /> */}
-        <CurrentWeather currentWeather={data.current_observation} />
-        {/* <SevenHour />
-        <TenDay /> */}
+        <CurrentWeather />
       </div>
     );
   }
