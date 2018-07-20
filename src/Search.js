@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './css/Search.css';
 
 class Search extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class Search extends Component {
             this.setState({ searchInput: event.target.value });
           }}
         />
-        <button onClick={event => this.props.dataFetch(this.state.searchInput)}>
+        <button onClick={event => this.props.dataFetch(this.state.searchInput)} className="search-button">
           ENTER
         </button>
       </div>

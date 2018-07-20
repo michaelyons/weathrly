@@ -50,7 +50,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Weathrly</h1>
+        <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
+        <h1 className="App-title">Welcome to Weathrly</h1>
         </header>
         <Search dataFetch={this.locationChange} />
         <CurrentWeather currWeather={this.state.currWeather} />
