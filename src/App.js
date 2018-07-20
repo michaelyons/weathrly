@@ -3,16 +3,15 @@ import "./css/App.css";
 import CurrentWeather from "./CurrentWeather.js";
 import Key from "./key.js";
 import Search from "./Search.js";
-import { currWeather, sevenHour, tenDay } from "./helper.js";
+import { currWeather } from "./helper.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "denver, co",
+      location: "new york, ny",
       currWeather: {}
     };
-
     this.getData = this.getData.bind(this);
   }
 

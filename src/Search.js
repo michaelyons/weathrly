@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import './css/Search.css';
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchInput: ""
     };
@@ -13,6 +13,9 @@ class Search extends Component {
     return (
       <div>
         <input
+          type="text"
+          value={this.state.searchInput}
+          placeholder="Enter a City and State or Zip Code."
           onChange={event => {
             this.setState({ searchInput: event.target.value });
           }}
