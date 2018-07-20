@@ -1,41 +1,44 @@
-export const currentDayForecast = data => {
-  let x = data.forecast.simpleforecast.forecastday.find(
-    currentDayForecast => currentDayForecast.period === 1
+export const currWeather = data => {
+  const currDay = data.forecast.simpleforecast.forecastday.find(
+    currDay => currDay.period === 1
   );
-
-  const currentDayForecastObject = {
+  const currDayObj = {
     time: data.current_observation.observation_time,
     location: data.current_observation.display_location.full,
     current: data.current_observation.temp_f + "°F",
-    high: x.high.fahrenheit + "°F",
-    low: x.low.fahrenheit + "°F",
-    conditions: x.conditions,
-    icon: x.icon_url
+    high: currDay.high.fahrenheit + "°F",
+    low: currDay.low.fahrenheit + "°F",
+    conditions: currDay.conditions,
+    icon: currDay.icon_url
   };
 
-  return currentDayForecastObject;
+  return currDayObj;
 };
 
-// const sevenHourForecast = data.hourly_forecast
-//   .filter(obj => Object.values(obj)[0])
-//   .reduce((sevenHour, hour, i) => {
-//     if (i < 8) {
-//       sevenHour.push({
-//         time: hour.FCTTIME.civil,
-//         temp: hour.temp.english + "°F",
-//         condition: hour.condition,
-//         icon_url: hour.icon_url
-//       });
-//     }
-//     return sevenHour;
-//   }, []);
+export const sevenHour = response => {
+  return response.hourly_forecast
+    .filter(obj => Object.values(obj)[0])
+    .reduce((sevenHour, hour, i) => {
+      if (i < 8) {
+        sevenHour.push({
+          time: hour.FCTTIME.civil,
+          temp: Math.floor(hour.temp.english) + "°F",
+          condition: hour.condition,
+          icon_url: hour.icon_url
+        });
+      }
+      return sevenHour;
+    }, []);
+};
 
-// const tenDay = data.forecast.simpleforecast.forecastday.map(obj => {
-//   return {
-//     day: obj.date.weekday,
-//     date: obj.date.month + "/" + obj.date.day + "/" + obj.date.year,
-//     high: obj.high.fahrenheit + "°F",
-//     low: obj.low.fahrenheit + "°F",
-//     icon: obj.icon_url
-//   };
-// });
+export const tenDay = data => {
+  return data.forecast.simpleforecast.forecastday.map(obj => {
+    return {
+      day: obj.date.weekday,
+      date: obj.date.month + "/" + obj.date.day + "/" + obj.date.year,
+      high: obj.high.fahrenheit + "°F",
+      low: obj.low.fahrenheit + "°F",
+      icon: obj.icon_url
+    };
+  });
+};
