@@ -1,25 +1,18 @@
 import React from "react";
 // import "./CurrentWeather.css";
 
-const CurrentWeather = ({
-  time,
-  location,
-  current,
-  high,
-  low,
-  conditions,
-  icon
-}) => {
+const CurrentWeather = props => {
   return (
     <div className="currentWeather">
-      <h2>{time}</h2>
-      <h3>{location}</h3>
-      <h2>{current}</h2>
+      <h2>{props.currWeather.time}</h2>
+      <h3>{props.currWeather.location}</h3>
+      <h2>{props.currWeather.current}</h2>
       <p>
-        {high}; {low}
+        {props.currWeather.high}
+        {props.currWeather.low}
       </p>
-      <p>{conditions}</p>
-      <p>{icon}</p>
+      <p>{props.currWeather.conditions}</p>
+      <p>{props.currWeather.icon}</p>
     </div>
   );
 };
