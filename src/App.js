@@ -59,15 +59,12 @@ class App extends Component {
             href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
             rel="stylesheet"
           />
-          <link
-            href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
-            rel="stylesheet"
-          />
-          <h1 className="App-title">Welcome to Weathrly</h1>
+          <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+          <h1 className="App-title">weathrly.</h1>
         </header>
         <Search dataFetch={e => this.locationChange(e)} />
         <CurrentWeather currWeather={this.state.currWeather} />
-        <sevenHour sevenHour={this.state.sevenHour} />
+        <SevenHour sevenHour={this.state.sevenHour} />
       </div>
     );
   }

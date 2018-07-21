@@ -1,7 +1,8 @@
 import React from "react";
+import SevenHourCard from './Card.js';
 import "./css/SevenHour.css";
 
-const sevenHour = props => {
+const SevenHour = props => {
   return (
     <div className="sevenHour-container">
       <header>{props.sevenHourForecast}</header>
@@ -12,4 +13,4 @@ const sevenHour = props => {
   );
 };
 
-export default sevenHour;
+export default SevenHour;

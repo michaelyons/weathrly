@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  background-image: url(https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-0.3.5&s=900d5432a1d7e933c0153dace683f73a&auto=format&fit=crop&w=1950&q=80);
+  /*background-image: url(https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-0.3.5&s=900d5432a1d7e933c0153dace683f73a&auto=format&fit=crop&w=1950&q=80);*/
   background-size: 100rem;
   height: 50rem;
+  background-color: black;
  /* -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
@@ -20,10 +21,9 @@
 }
 
 .App-title {
-  font-size: 1.5em;
-font-family: 'Luckiest Guy', cursive;
-
-  color: blanchedalmond;
+  font-size: 3em;
+  font-family: 'Raleway', sans-serif;
+  color: #FFF;
 }
 
 .App-intro {
