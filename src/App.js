@@ -9,13 +9,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "new york, ny",
+      location: "",
       currWeather: {}
     };
     this.getData = this.getData.bind(this);
   }
 
   getData() {
+    console.log(this.state);
     fetch(
       `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
         this.state.location
@@ -49,11 +50,17 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
-        <h1 className="App-title">Welcome to Weathrly</h1>
+          <link
+            href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
+            rel="stylesheet"
+          />
+          <h1 className="App-title">Welcome to Weathrly</h1>
         </header>
-        <Search dataFetch={this.locationChange} />
+        <Search dataFetch={e => this.locationChange(e)} />
         <CurrentWeather currWeather={this.state.currWeather} />
       </div>
     );
