@@ -1,13 +1,14 @@
 .currentWeather {
+  border: double;
   margin-top: 3rem;
   box-shadow: 2px 2px 2px 2px #191B18;
   height: 16.5rem;
   width: 23rem;
-  color: black;
-  opacity: .7;
+  color: white;
+  /*opacity: .7;*/
   text-align: center;
   margin: auto;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Raleway', sans-serif;
 }
 
 .location {
@@ -15,8 +16,8 @@
 }
 
 .weather-icon {
-  width: 8.5rem;
-  height: 8.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .left-side {
@@ -25,7 +26,7 @@
 
 .right-side {
   float: right;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 
