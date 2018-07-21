@@ -1,9 +1,10 @@
 import React from "react";
-import MockData from "./MockData";
+import "./css/SevenHour.css";
+
 
 const sevenHour = props => {
   return (
-    <div>
+    <div className="sevenHour-container">
       <header>{props.sevenHourForecast}</header>
       <p>{props.hour}</p>
       <img src={props.weatherImg} />
@@ -11,3 +12,5 @@ const sevenHour = props => {
     </div>
   );
 };
+
+export default sevenHour;

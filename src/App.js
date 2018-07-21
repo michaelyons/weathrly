@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import "./css/App.css";
 import CurrentWeather from "./CurrentWeather.js";
+import SevenHour from './SevenHour.js';
 import Key from "./key.js";
 import Search from "./Search.js";
-import { currWeather } from "./helper.js";
+import { currWeather, sevenHour } from "./helper.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: "",
-      currWeather: {}
+      currWeather: {},
+      sevenHour: []
     };
     this.getData = this.getData.bind(this);
   }
@@ -25,9 +27,11 @@ class App extends Component {
       .then(data => data.json())
       .then(data => {
         console.log(currWeather(data));
+        console.log(sevenHour(data))
         this.setState({
           location: data.current_observation.display_location.full,
-          currWeather: currWeather(data)
+          currWeather: currWeather(data),
+          sevenHour: sevenHour(data)
         });
       });
     // .catch(error => {
@@ -62,6 +66,7 @@ class App extends Component {
         </header>
         <Search dataFetch={e => this.locationChange(e)} />
         <CurrentWeather currWeather={this.state.currWeather} />
+        <SevenHour sevenHour={this.state.sevenHour} />
       </div>
     );
   }
