@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-const SevenHour = props => {
-  console.log(props);
+const Card = props => {
   return (
     <div className="sevenHourCard">
       <p>{props.time}</p>
@@ -11,4 +10,4 @@ const SevenHour = props => {
   );
 };
 
-export default SevenHour;
+export default Card;

@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   getData() {
-    console.log(this.state);
     fetch(
       `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
         this.state.location
@@ -33,13 +32,6 @@ class App extends Component {
           sevenHour: sevenHour(data)
         });
       });
-    // .catch(error => {
-    //   throw new Error(error);
-    // });
-  }
-
-  componentDidMount() {
-    this.getData();
   }
 
   locationChange(search) {
