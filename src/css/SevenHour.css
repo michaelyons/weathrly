@@ -1,12 +1,7 @@
 .sevenHour-container {
-/*  margin-top: 3rem;
-  box-shadow: 2px 2px 2px 2px #191B18;
-  height: 18.5rem;
-  width: 25rem;*/
-  color: #FFF;
+  color: #fff;
   background: pink;
- /* opacity: .7;
-  text-align: center;
-  margin: auto;
-  font-family: 'Source Code Pro', monospace;*/
+  height: 13rem;
+  width: 8rem;
+  margin-left: 2rem;
 }

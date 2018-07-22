@@ -25,11 +25,11 @@ class Search extends Component {
             onClick={event => this.props.dataFetch(this.state.searchInput)}
             className="search-button"
           >
-            ENTER
+            submit
           </button>
         </div>
         <div className="second-input">
-            <input
+          <input
             type="text"
             value={this.state.searchInput}
             placeholder="enter a state"
@@ -42,7 +42,7 @@ class Search extends Component {
             onClick={event => this.props.dataFetch(this.state.searchInput)}
             className="search-button"
           >
-            ENTER
+            submit
           </button>
         </div>
       </div>
