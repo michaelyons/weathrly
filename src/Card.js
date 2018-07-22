@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-const SevenHourCard = props => {
+const SevenHour = props => {
+  console.log(props);
   return (
-   <div className="sevenHourCard">
-      <p>{props.sevenHour.hour}</p>
-      <img src={props.sevenHour.weatherImg} />
-      <h2>{props.sevenHour.temp}</h2>
-   </div>
-  )
-}
+    <div className="sevenHourCard">
+      <p>{props.time}</p>
+      <img src={props.icon_url} />
+      <h2>{props.temp}</h2>
+    </div>
+  );
+};
 
-export default SevenHourCard;
+export default SevenHour;
