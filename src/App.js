@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   getData() {
-    console.log(this.state);
     fetch(
       `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
         this.state.location
@@ -27,21 +26,12 @@ class App extends Component {
     )
       .then(data => data.json())
       .then(data => {
-        console.log(currWeather(data));
-        console.log(sevenHour(data));
         this.setState({
           location: data.current_observation.display_location.full,
           currWeather: currWeather(data),
           sevenHour: sevenHour(data)
         });
       });
-    // .catch(error => {
-    //   throw new Error(error);
-    // });
-  }
-
-  componentDidMount() {
-    this.getData();
   }
 
   locationChange(search) {
@@ -59,7 +49,10 @@ class App extends Component {
             href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
             rel="stylesheet"
           />
-          <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Raleway"
+            rel="stylesheet"
+          />
           <h1 className="App-title">weathrly.</h1>
         </header>
         <Search dataFetch={e => this.locationChange(e)} />
