@@ -53,7 +53,7 @@ class App extends Component {
     if (localStorage.incomingWeather)
       this.locationChange(JSON.parse(localStorage.incomingWeather).location)
     }
-  }
+  
 
   render() {
     if (!this.state.location) {
