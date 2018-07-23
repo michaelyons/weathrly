@@ -6,6 +6,7 @@
 
 .App-header {
   height: 100%;
+  padding: 20px;
 }
 
 .App-title {
@@ -28,6 +29,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: pink;
+  background: green;
   border-radius: 0.5rem;
 }
