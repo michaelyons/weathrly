@@ -24,7 +24,7 @@ class App extends Component {
   getData() {
     const url = `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
       this.state.location
-    }.json`;
+      }.json`;
 
     fetch(url)
       .then(data => data.json())
@@ -53,12 +53,12 @@ class App extends Component {
     let incomingWeather = JSON.parse(localStorage.getItem("incomingWeather"));
 
     this.getData(incomingWeather.location);
+    // this.setState()
   }
 
   componentDidMount() {
     if (localStorage.incomingWeather) {
-      this.retrieveFromLocalStorage();
-      // this.setState();
+      this.locationChange(JSON.parse(localStorage.incomingWeather).location)
     }
   }
 
@@ -66,6 +66,10 @@ class App extends Component {
     if (!this.state.location) {
       return (
         <div>
+          <link
+            href="https://fonts.googleapis.com/css?family=Raleway"
+            rel="stylesheet"
+          />
           <WelcomePage />
           <Search dataFetch={e => this.locationChange(e)} />
         </div>
@@ -74,10 +78,6 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <link
-              href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
-              rel="stylesheet"
-            />
             <link
               href="https://fonts.googleapis.com/css?family=Raleway"
               rel="stylesheet"
