@@ -7,7 +7,7 @@ const SevenHour = props => {
     return <Card {...hour} />;
   });
 
-  return <div>{cardsToDisplay}</div>;
+  return <div className="sevenHour">{cardsToDisplay}</div>;
 };
 
 export default SevenHour;
