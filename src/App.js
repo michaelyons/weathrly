@@ -3,9 +3,10 @@ import "./css/App.css";
 import WelcomePage from "./Welcome.js";
 import CurrentWeather from "./CurrentWeather.js";
 import SevenHour from "./SevenHour.js";
+import TenDay from "./TenDay.js";
 import Key from "./key.js";
 import Search from "./Search.js";
-import { currWeather, sevenHour } from "./helper.js";
+import { currWeather, sevenHour, tenDay } from "./helper.js";
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       location: "",
       currWeather: {},
-      sevenHour: []
+      sevenHour: [],
+      tenDay: []
     };
 
     this.getData = this.getData.bind(this);
@@ -30,7 +32,8 @@ class App extends Component {
         this.setState({
           location: data.current_observation.display_location.full,
           currWeather: currWeather(data),
-          sevenHour: sevenHour(data)
+          sevenHour: sevenHour(data),
+          tenDay: tenDay(data)
         });
       })
       .then(data => this.sendToLocalStorage());
@@ -83,6 +86,7 @@ class App extends Component {
         <Search dataFetch={e => this.locationChange(e)} />
         <CurrentWeather currWeather={this.state.currWeather} />
         <SevenHour sevenHour={this.state.sevenHour} />
+        <TenDay tenDay={this.state.tenDay} />
       </div>
     );
   }
