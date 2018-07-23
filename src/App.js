@@ -20,11 +20,11 @@ class App extends Component {
   }
 
   getData() {
-    fetch(
-      `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
-        this.state.location
-      }.json`
-    )
+    const url = `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
+      this.state.location
+    }.json`;
+
+    fetch(url)
       .then(data => data.json())
       .then(data => {
         this.setState({
