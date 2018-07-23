@@ -1,7 +1,11 @@
 body {
   text-align: center;
-  background-color: #020202;
+  /*background-color: #020202;*/
+  background: url('../images/background-stars.jpeg');
+  background-size: 85rem;
   color: white;
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
 }
 
 

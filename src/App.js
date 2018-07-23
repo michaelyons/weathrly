@@ -52,13 +52,13 @@ class App extends Component {
   retrieveFromLocalStorage() {
     let incomingWeather = JSON.parse(localStorage.getItem("incomingWeather"));
 
-    this.getData(incomingWeather.location);
+    this.getData(incomingWeather);
   }
 
   componentDidMount() {
     if (localStorage.incomingWeather) {
       this.retrieveFromLocalStorage();
-      // this.setState();
+      this.setState();
     }
   }
 
@@ -66,6 +66,10 @@ class App extends Component {
     if (!this.state.location) {
       return (
         <div>
+          <link
+              href="https://fonts.googleapis.com/css?family=Raleway"
+              rel="stylesheet"
+            />
           <WelcomePage />
           <Search dataFetch={e => this.locationChange(e)} />
         </div>
@@ -75,14 +79,10 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <link
-              href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
-              rel="stylesheet"
-            />
-            <link
               href="https://fonts.googleapis.com/css?family=Raleway"
               rel="stylesheet"
             />
-            <h1 className="App-title">weathrly.</h1>
+          <h1 className="App-title">weathrly.</h1>
           </header>
           <Search dataFetch={e => this.locationChange(e)} />
           <CurrentWeather currWeather={this.state.currWeather} />
