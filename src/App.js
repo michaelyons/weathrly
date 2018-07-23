@@ -58,39 +58,40 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.incomingWeather) {
       this.retrieveFromLocalStorage();
+      // this.setState();
     }
   }
 
   render() {
-    // if (!this.state.location) {
-    //   return (
-    //     <div>
-    //       <WelcomePage />
-    //       <Search getData={this.getData} />
-    //     </div>
-    //   );
-    // } else {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <link
-            href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Raleway"
-            rel="stylesheet"
-          />
-          <h1 className="App-title">weathrly.</h1>
-        </header>
-        <Search dataFetch={e => this.locationChange(e)} />
-        <CurrentWeather currWeather={this.state.currWeather} />
-        <SevenHour sevenHour={this.state.sevenHour} />
-        <TenDay tenDay={this.state.tenDay} />
-      </div>
-    );
+    if (!this.state.location) {
+      return (
+        <div>
+          <WelcomePage />
+          <Search dataFetch={e => this.locationChange(e)} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <link
+              href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
+              rel="stylesheet"
+            />
+            <link
+              href="https://fonts.googleapis.com/css?family=Raleway"
+              rel="stylesheet"
+            />
+            <h1 className="App-title">weathrly.</h1>
+          </header>
+          <Search dataFetch={e => this.locationChange(e)} />
+          <CurrentWeather currWeather={this.state.currWeather} />
+          <SevenHour sevenHour={this.state.sevenHour} />
+          <TenDay tenDay={this.state.tenDay} />
+        </div>
+      );
+    }
   }
 }
-// }
 
 export default App;
