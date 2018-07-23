@@ -5,12 +5,7 @@
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.first-input,
-.second-input {
+.first-input {
   display: block;
   margin-bottom: 0.5rem;
-}
-
-.second-input {
-  margin-bottom: 2.5rem;
 }

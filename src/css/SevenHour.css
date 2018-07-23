@@ -1,7 +1,11 @@
-.sevenHour-container {
+.sevenHourCard {
   color: #fff;
-  background: pink;
-  height: 13rem;
-  width: 8rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+
+.sevenHour {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 }

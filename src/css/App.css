@@ -1,16 +1,11 @@
 .App {
   text-align: center;
-  background-size: 100rem;
-  height: 50rem;
+  height: 100%;
   background-color: #020202;
 }
 
-.App-logo {
-  height: 80px;
-}
-
 .App-header {
-  height: 150px;
+  height: 100%;
   padding: 20px;
 }
 
