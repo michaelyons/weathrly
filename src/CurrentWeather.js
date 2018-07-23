@@ -6,7 +6,11 @@ const CurrentWeather = props => {
     <div className="currentWeather">
       <h3 className="location">{props.currWeather.location}</h3>
       <div className="left-side">
-        <img src={props.currWeather.icon} className="weather-icon" />
+        <img
+          src={props.currWeather.icon}
+          className="weather-icon"
+          alt="weather icon"
+        />
         <p>{props.currWeather.conditions}</p>
         <p>
           {props.currWeather.high}
@@ -14,7 +18,7 @@ const CurrentWeather = props => {
         </p>
       </div>
       <h2 className="right-side">{props.currWeather.current}</h2>
-      {/*<h2>{props.currWeather.time}</h2>*/}
+      <h2>{props.currWeather.time}</h2>
     </div>
   );
 };

@@ -31,17 +31,33 @@ class App extends Component {
           currWeather: currWeather(data),
           sevenHour: sevenHour(data)
         });
-      });
+      })
+      .then(data => this.sendToLocalStorage());
   }
 
   locationChange(search) {
     this.setState({ location: search }, this.getData);
   }
 
+  sendToLocalStorage() {
+    let outgoingWeather = JSON.stringify(this.state);
+
+    localStorage.setItem("incomingWeather", outgoingWeather);
+  }
+
+  retrieveFromLocalStorage() {
+    let incomingWeather = JSON.parse(localStorage.getItem("incomingWeather"));
+
+    this.getData(incomingWeather.location);
+  }
+
+  componentDidMount() {
+    if (localStorage.incomingWeather) {
+      this.retrieveFromLocalStorage();
+    }
+  }
+
   render() {
-    // if (!this.state.currentWeather) {
-    //   return <h2>Hi Paul</h2>;
-    // } else {
     return (
       <div className="App">
         <header className="App-header">
@@ -62,6 +78,5 @@ class App extends Component {
     );
   }
 }
-// }
 
 export default App;

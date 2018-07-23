@@ -44,7 +44,7 @@
       }
     ],
     "linebreak-style": ["error", "unix"],
-    "max-len": ["error", 80],
+    "max-len": ["error", 100],
     "new-cap": [
       "error",
       {
