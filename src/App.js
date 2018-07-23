@@ -58,6 +58,7 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.incomingWeather) {
       this.retrieveFromLocalStorage();
+      // this.setState();
     }
   }
 
