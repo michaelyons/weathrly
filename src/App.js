@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/App.css";
+import WelcomePage from "./Welcome.js";
 import CurrentWeather from "./CurrentWeather.js";
 import SevenHour from "./SevenHour.js";
 import Key from "./key.js";
@@ -58,6 +59,14 @@ class App extends Component {
   }
 
   render() {
+    // if (!this.state.location) {
+    //   return (
+    //     <div>
+    //       <WelcomePage />
+    //       <Search getData={this.getData} />
+    //     </div>
+    //   );
+    // } else {
     return (
       <div className="App">
         <header className="App-header">
@@ -78,5 +87,6 @@ class App extends Component {
     );
   }
 }
+// }
 
 export default App;
