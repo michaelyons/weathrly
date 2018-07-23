@@ -6,6 +6,7 @@ const SevenHour = props => {
   const cardsToDisplay = props.sevenHour.map(hour => {
     return <Card {...hour} />;
   });
+
   return <div>{cardsToDisplay}</div>;
 };
 

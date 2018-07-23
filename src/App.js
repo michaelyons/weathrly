@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/App.css";
+import WelcomePage from "./Welcome.js";
 import CurrentWeather from "./CurrentWeather.js";
 import SevenHour from "./SevenHour.js";
 import Key from "./key.js";
@@ -31,16 +32,40 @@ class App extends Component {
           currWeather: currWeather(data),
           sevenHour: sevenHour(data)
         });
-      });
+      })
+      .then(data => this.sendToLocalStorage());
   }
 
   locationChange(search) {
     this.setState({ location: search }, this.getData);
   }
 
+  sendToLocalStorage() {
+    let outgoingWeather = JSON.stringify(this.state);
+
+    localStorage.setItem("incomingWeather", outgoingWeather);
+  }
+
+  retrieveFromLocalStorage() {
+    let incomingWeather = JSON.parse(localStorage.getItem("incomingWeather"));
+
+    this.getData(incomingWeather.location);
+  }
+
+  componentDidMount() {
+    if (localStorage.incomingWeather) {
+      this.retrieveFromLocalStorage();
+    }
+  }
+
   render() {
-    // if (!this.state.currentWeather) {
-    //   return <h2>Hi Paul</h2>;
+    // if (!this.state.location) {
+    //   return (
+    //     <div>
+    //       <WelcomePage />
+    //       <Search getData={this.getData} />
+    //     </div>
+    //   );
     // } else {
     return (
       <div className="App">
