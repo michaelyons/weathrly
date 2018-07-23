@@ -1,5 +1,5 @@
-import React from 'react';
-import Card from './Card.js';
+import React from "react";
+import Card from "./Card.js";
 import "./css/TenDay.css";
 
 const TenDay = props => {
@@ -7,7 +7,7 @@ const TenDay = props => {
     return <Card {...day} />;
   });
 
-  return <div>{tenCardsToDisplay}</div>;
+  return <div className="tenDay">{tenCardsToDisplay}</div>;
 };
 
 export default TenDay;
