@@ -49,13 +49,6 @@ class App extends Component {
     localStorage.setItem("incomingWeather", outgoingWeather);
   }
 
-  retrieveFromLocalStorage() {
-    let incomingWeather = JSON.parse(localStorage.getItem("incomingWeather"));
-
-    this.getData(incomingWeather.location);
-    // this.setState()
-  }
-
   componentDidMount() {
     if (localStorage.incomingWeather) {
       this.locationChange(JSON.parse(localStorage.incomingWeather).location)
