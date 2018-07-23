@@ -2,8 +2,10 @@ export const currWeather = data => {
   const currDay = data.forecast.simpleforecast.forecastday.find(
     currDay => currDay.period === 1
   );
+  const date = new Date();
+  const realTime = date.toLocaleTimeString();
   const currDayObj = {
-    time: data.current_observation.observation_time,
+    time: "Last Updated " + realTime,
     location: data.current_observation.display_location.full,
     current: data.current_observation.temp_f + "°F",
     high: currDay.high.fahrenheit + "°F",
