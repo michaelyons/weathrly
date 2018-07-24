@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./css/Search.css";
+import { PrefixTrie } from "complete-me";
+import citiesList from "./citiesList.js";
 
 class Search extends Component {
   constructor(props) {
@@ -7,40 +9,78 @@ class Search extends Component {
     this.locationSubmit = this.locationSubmit.bind(this);
     this.newLocation = this.newLocation.bind(this);
     this.state = {
-      searchInput: ""
+      searchInput: "",
+      autoCompleteResults: []
     };
   }
 
   locationSubmit() {
     this.props.getData(this.state.location);
     this.setState({
-      searchInput: ""
+      searchInput: "",
+      prefixTrie: null
     });
+  }
+
+  handleChange(event) {
+    this.setState({ searchInput: event.target.value });
+    this.autoCompleteResults();
   }
 
   newLocation(event) {
     this.setState({ location: event.target.value });
   }
 
+  displayAutoSuggestions() {
+    return (
+    this.state.autoCompleteResults.map(result => {
+      return <option value={result}></option>
+    }).slice(0, 4)
+  )
+  }
+  
+  componentDidMount() {
+    const prefixTrie = new PrefixTrie(); 
+    prefixTrie.populate(citiesList.data)
+    this.setState({
+      prefixTrie
+    })  
+  }
+
+  autoCompleteResults() {
+    const cityArray = this.state.prefixTrie.suggest(this.state.searchInput);
+    console.log(cityArray);
+    this.setState({
+      autoCompleteResults: cityArray
+    })
+  }
+
   render() {
     return (
-      <div>
+      <form 
+      onSubmit={event => {
+       event.preventDefault();
+       this.props.dataFetch(this.state.searchInput)}
+      }>
           <input
             className="first-input"
             type="text"
+            list="input-populate"
             value={this.state.searchInput}
             placeholder="enter city, state/zip code"
             onChange={event => {
-              this.setState({ searchInput: event.target.value });
+              this.handleChange(event);
             }}
-          />
+            />
+            <datalist id="input-populate">
+            {this.displayAutoSuggestions()}
+            </datalist>
           <button
-            onClick={event => this.props.dataFetch(this.state.searchInput)}
             className="search-button"
           >
             submit
           </button>
-      </div>
+      </form>
     );
   }
 }

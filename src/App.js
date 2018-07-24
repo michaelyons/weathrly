@@ -8,6 +8,7 @@ import Key from "./key.js";
 import Search from "./Search.js";
 import { currWeather, sevenHour, tenDay } from "./helper.js";
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +38,10 @@ class App extends Component {
         });
       })
       .then(data => this.sendToLocalStorage(data))
-      .catch(error => {
-        localStorage.clear();
-        alert('Location entered not vaild, please enter valid location')
-      })
+      // .catch(error => {
+      //   localStorage.clear();
+      //   alert('Location entered not vaild, please enter valid location')
+      // })
   }
 
   locationChange(search) {
