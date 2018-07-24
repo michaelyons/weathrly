@@ -1,7 +1,12 @@
 .App {
   text-align: center;
-  height: 100%;
-  background-color: #020202;
+  background: linear-gradient(to bottom right,rgba(128, 128, 128, 0.148), rgba(128, 128, 128, 0.148)),
+  url('https://source.unsplash.com/collection/410546/1600x900');
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-position:center;
 }
 
 .App-header {
