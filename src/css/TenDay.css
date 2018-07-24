@@ -1,14 +1,17 @@
 .tenDayCard {
-  color: #fff;
-  height: 100%;
-  width: 8rem;
-  margin-left: 1rem;
+  border: double;
+  box-shadow: 2px 2px 2px 2px #191b18;
+  width: 7rem;
+  color: black;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  background-color: #F8F8FF;
 }
 
 .tenDay {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
   flex-wrap: wrap;
 }
