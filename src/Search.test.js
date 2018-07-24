@@ -1,7 +1,6 @@
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme'
 import Search from './Search.js';
-import localStorage from './setupTests'
 
 import Adapter from 'enzyme-adapter-react-16';
 
