@@ -36,7 +36,12 @@ class App extends Component {
           tenDay: tenDay(data)
         });
       })
-      .then(data => this.sendToLocalStorage());
+      .then(data => this.sendToLocalStorage(data))
+      .catch(error => {
+        localStorage.clear();
+
+        alert('Location entered not vaild, please enter valid location')
+      })
   }
 
   locationChange(search) {
@@ -52,8 +57,8 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.incomingWeather)
       this.locationChange(JSON.parse(localStorage.incomingWeather).location)
-    }
-  
+  }
+
 
   render() {
     if (!this.state.location) {
@@ -75,7 +80,7 @@ class App extends Component {
               href="https://fonts.googleapis.com/css?family=Raleway"
               rel="stylesheet"
             />
-          <h1 className="App-title">weathrly.</h1>
+            <h1 className="App-title">weathrly.</h1>
           </header>
           <Search dataFetch={e => this.locationChange(e)} />
           <CurrentWeather currWeather={this.state.currWeather} />

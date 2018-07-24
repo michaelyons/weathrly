@@ -9,7 +9,7 @@ const CurrentWeather = props => {
         <img
           src={props.currWeather.icon}
           className="weather-icon"
-          alt="weather icon"
+          alt=''
         />
         <p>{props.currWeather.conditions}</p>
         <p>
