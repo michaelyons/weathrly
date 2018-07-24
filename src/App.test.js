@@ -1,9 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { configure, shallow, mount } from 'enzyme'
 import App from './App';
+// import localStorage from './setupTests'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({adapter: new Adapter()});
+
+describe('App', () => {
+    let shallowWrapper;
+    let mountWrapper;
+
+beforeEach() => {
+  shallow =shallow(<App />)
+  mount = mount(<App />)
+}
+
+}
+
