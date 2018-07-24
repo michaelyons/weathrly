@@ -25,8 +25,8 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <div className="first-input">
           <input
+            className="first-input"
             type="text"
             value={this.state.searchInput}
             placeholder="enter a city or zip code"
@@ -40,7 +40,6 @@ class Search extends Component {
           >
             submit
           </button>
-        </div>
       </div>
     );
   }

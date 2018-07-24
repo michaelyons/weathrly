@@ -1,11 +1,28 @@
-.search-button {
-  background: #ffffff;
-  color: sienna;
-  border-radius: 4px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+.first-input {
+  margin-bottom: 0.5rem;
+  height: 2rem;
+  width: 14.5rem;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
 }
 
-.first-input {
-  display: block;
-  margin-bottom: 0.5rem;
+::placeholder {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.search-button {
+  background-color: rgba(0, 0, 0, 0.336);
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: .5rem;
+  width: 5rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.search-button:hover {
+  background-color: white;
+  color: black;
 }
