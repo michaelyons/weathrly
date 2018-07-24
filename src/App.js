@@ -63,7 +63,7 @@ class App extends Component {
     if (!this.state.location) {
       return (
         <div>
-          <link
+           <link
             href="https://fonts.googleapis.com/css?family=Raleway"
             rel="stylesheet"
           />
