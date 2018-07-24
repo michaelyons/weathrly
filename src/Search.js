@@ -29,7 +29,7 @@ class Search extends Component {
             className="first-input"
             type="text"
             value={this.state.searchInput}
-            placeholder="enter a city or zip code"
+            placeholder="enter city, state/zip code"
             onChange={event => {
               this.setState({ searchInput: event.target.value });
             }}
