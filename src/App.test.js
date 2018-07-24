@@ -14,7 +14,6 @@ describe('App', () => {
   beforeEach(() => {
     shallowWrapper = shallow(<App />)
     mountWrapper = mount(<App />)
-    console.log(shallowWrapper);
   })
 
   it('should exist', () => {
