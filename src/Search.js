@@ -32,24 +32,26 @@ class Search extends Component {
   }
 
   displayAutoSuggestions() {
-    return (
-    this.state.autoCompleteResults.map(result => {
-      return <option value={result}></option>
-    }).slice(0, 4)
-  )
+    if (this.state.searchInput.length >= 1) {
+      return (
+        this.state.autoCompleteResults.map(result => {
+          return <option value={result}></option>
+        }).slice(1, 2)
+      )
+    }
   }
-  
+
   componentDidMount() {
-    const prefixTrie = new PrefixTrie(); 
+    const prefixTrie = new PrefixTrie();
     prefixTrie.populate(citiesList.data)
     this.setState({
       prefixTrie
-    })  
+    })
   }
 
   autoCompleteResults() {
     const cityArray = this.state.prefixTrie.suggest(this.state.searchInput);
-    console.log(cityArray);
+    
     this.setState({
       autoCompleteResults: cityArray
     })
@@ -57,28 +59,29 @@ class Search extends Component {
 
   render() {
     return (
-      <form 
-      onSubmit={event => {
-       event.preventDefault();
-       this.props.dataFetch(this.state.searchInput)}
-      }>
-          <input
-            className="first-input"
-            type="text"
-            list="input-populate"
-            value={this.state.searchInput}
-            placeholder="enter city, state/zip code"
-            onChange={event => {
-              this.handleChange(event);
-            }}
-            />
-            <datalist id="input-populate">
-            {this.displayAutoSuggestions()}
-            </datalist>
-          <button
-            className="search-button"
-          >
-            submit
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          this.props.dataFetch(this.state.searchInput)
+        }
+        }>
+        <input
+          className="first-input"
+          type="text"
+          list="input-populate"
+          value={this.state.searchInput}
+          placeholder="enter city, state/zip code"
+          onChange={event => {
+            this.handleChange(event);
+          }}
+        />
+        <datalist id="input-populate">
+          {this.displayAutoSuggestions()}
+        </datalist>
+        <button
+          className="search-button"
+        >
+          submit
           </button>
       </form>
     );

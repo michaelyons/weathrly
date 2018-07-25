@@ -37,9 +37,10 @@ describe('Search', () => {
     const mockCallBack = jest.fn();
 
     let wrapperOne = shallow(<Search dataFetch={() => mockCallBack()} />)
-    let searchBtn = wrapperOne.find('button');
+    let searchBtn = wrapperOne.find('form');
+  
 
-    searchBtn.simulate('click');
+    searchBtn.simulate('submit', {preventDefault: () => {} });
 
     expect(mockCallBack).toHaveBeenCalled();
   })
