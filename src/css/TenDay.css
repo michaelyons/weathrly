@@ -1,3 +1,10 @@
+.tenDay-header {
+  font-size: 2rem;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  margin-top: 0;
+}
+
 .tenDayCard {
   border: double;
   width: 15rem;
@@ -16,7 +23,6 @@ h2, h3, p {
 .tenDay {
   border: 2px solid black;
   width:  47rem;
-  margin-bottom: 12px;
   display: flex;
   flex-direction: row;
   align-content: center;
