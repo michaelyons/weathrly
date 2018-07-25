@@ -7,7 +7,7 @@ body {
   -o-background-size:cover;
   height:100vh;
   background-position:center;
-  color: rgba(255, 255, 255, 0.072);
+  color: rgba(255, 255, 255, 1);
   font-size: 2rem;
   font-family: "Raleway", sans-serif;
 }
@@ -18,6 +18,10 @@ body {
 
 .welcomePage {
   margin-bottom: 2rem;
+}
+
+.App-title {
+  text-shadow: 1.5px 1.5px grey; 
 }
 
 

@@ -5,11 +5,12 @@
   font-size: 1.5rem;
   background-color: rgba(255, 255, 255, 0);
   border: none;
+  color: #DCDCDC;
 }
 
 ::placeholder {
   color: white;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 1px black;
 }
 
 .search-button {
@@ -17,7 +18,7 @@
   color: #ffffff;
   cursor: pointer;
   margin-left: .5rem;
-  width: 5rem;
+  width: 6rem;
   height: 2rem;
   font-size: 1rem;
 }

@@ -1,18 +1,22 @@
+.sevenHour-header {
+  font-size: 2rem;
+  color: white;
+  font-family: "Raleway", sans-serif;
+}
+
 .sevenHourCard {
   border: double;
-  box-shadow: 2px 2px 2px 2px #191b18;
   width: 7rem;
   color: black;
   text-align: center;
   font-family: "Raleway", sans-serif;
   background-color: #F8F8FF;
-  margin-bottom: 1rem;
 }
 
 .sevenHour {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   flex-wrap: wrap;
 }

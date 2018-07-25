@@ -1,17 +1,39 @@
+.tenDay-header {
+  font-size: 2rem;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  margin-top: 0;
+}
+
 .tenDayCard {
   border: double;
-  box-shadow: 2px 2px 2px 2px #191b18;
-  width: 7rem;
+  width: 15rem;
   color: black;
   text-align: center;
   font-family: "Raleway", sans-serif;
   background-color: #F8F8FF;
+
+}
+
+h2, h3, p {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .tenDay {
+  border: 2px solid black;
+  width:  47rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-content: center;
-  flex-wrap: wrap;
+  overflow-x: scroll;
+  margin: auto;
+}
+
+
+@media (max-width: 770px) {
+  .tenDay {
+    width: 28rem;
+
+  }
 }

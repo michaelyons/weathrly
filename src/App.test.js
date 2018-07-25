@@ -38,11 +38,11 @@ describe('App', () => {
     expect(shallowWrapper.find('Search').length).toEqual(1);
   })
 
-  // it('should render a Search, Welcome, CurrentWeather, SevenHour, and TenDay components', () => {
-  //   shallowWrapper.instance().locationChange("poop");
-  //   expect(shallowWrapper.find('Search').length).toEqual(1);
-  //   expect(shallowWrapper.find('CurrentWeather').length).toEqual(1);
-  //   expect(shallowWrapper.find('SevenHour').length).toEqual(1);
-  //   expect(shallowWrapper.find('TenDay').length).toEqual(1);
-  // })
+  it('should render a Search, CurrentWeather, SevenHour, and TenDay components on default', () => {
+    shallowWrapper.instance().locationChange("80228");
+    expect(shallowWrapper.find('Search').length).toEqual(1);
+    expect(shallowWrapper.find('CurrentWeather').length).toEqual(1);
+    expect(shallowWrapper.find('SevenHour').length).toEqual(1);
+    expect(shallowWrapper.find('TenDay').length).toEqual(1);
+  })
 });
