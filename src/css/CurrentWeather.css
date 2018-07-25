@@ -1,7 +1,6 @@
 .currentWeather {
   border: double;
   margin-top: 3rem;
-  box-shadow: 2px 2px 2px 2px #191b18;
   height: 16.5rem;
   width: 23rem;
   color: black;
@@ -19,15 +18,6 @@
 .weather-icon {
   width: 2.5rem;
   height: 2.5rem;
-}
-
-.left-side {
-  float: left;
-}
-
-.right-side {
-  float: right;
-  font-size: 2rem;
 }
 
 h2,

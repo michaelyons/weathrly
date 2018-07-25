@@ -20,4 +20,8 @@ body {
   margin-bottom: 2rem;
 }
 
+.App-title {
+  text-shadow: 1.5px 1.5px grey; 
+}
+
 
