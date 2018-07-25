@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme'
+import { configure, mount } from 'enzyme'
 import Card from './Card.js';
 
 import Adapter from 'enzyme-adapter-react-16';
