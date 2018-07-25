@@ -51,7 +51,7 @@ class Search extends Component {
 
   autoCompleteResults() {
     const cityArray = this.state.prefixTrie.suggest(this.state.searchInput);
-    console.log(cityArray);
+    
     this.setState({
       autoCompleteResults: cityArray
     })
