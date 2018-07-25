@@ -14,11 +14,11 @@ class Search extends Component {
     };
   }
 
-  locationSubmit() {
-    this.props.getData(this.state.location);
+  locationSubmit(event) {
+    event.preventDefault();
+    this.props.dataFetch(this.state.searchInput);
     this.setState({
       searchInput: "",
-      prefixTrie: null
     });
   }
 
@@ -36,7 +36,7 @@ class Search extends Component {
       return (
         this.state.autoCompleteResults.map(result => {
           return <option value={result}></option>
-        }).slice(0, 9)
+        }).slice(0, 15)
       )
     }
   }
@@ -57,13 +57,11 @@ class Search extends Component {
     })
   }
 
+
   render() {
     return (
       <form
-        onSubmit={event => {
-          event.preventDefault();
-          this.props.dataFetch(this.state.searchInput)
-        }
+        onSubmit={event => this.locationSubmit(event)
         }>
         <input
           className="first-input"

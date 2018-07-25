@@ -40,7 +40,7 @@ class App extends Component {
       .then(data => this.sendToLocalStorage(data))
       .catch(error => {
         localStorage.clear();
-        this.setState({location: ""});
+        this.setState({searchInput: ""});
         alert('Location entered not vaild, please enter valid location')
       })
   }
