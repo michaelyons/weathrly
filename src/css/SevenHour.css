@@ -16,7 +16,7 @@
 .sevenHour {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   flex-wrap: wrap;
 }
