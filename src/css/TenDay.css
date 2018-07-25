@@ -8,9 +8,12 @@
 }
 
 .tenDay {
+   border: 1px solid black;
+  width:  250px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-content: center;
-  flex-wrap: wrap;
+  overflow-x: scroll;
+  margin: auto;
 }
