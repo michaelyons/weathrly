@@ -34,8 +34,8 @@ class Search extends Component {
   displayAutoSuggestions() {
     if (this.state.searchInput.length > 2) {
       return this.state.autoCompleteResults
-        .map(result => {
-          return <option value={result} />;
+        .map((result, index) => {
+          return <option value={result} key={index}/>;
         })
         .slice(0, 15);
     }

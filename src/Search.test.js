@@ -53,4 +53,12 @@ describe("Search", () => {
   it('should have a default state of an empty array for auto complete results', () => {
     expect(shallowWrapper.state().autoCompleteResults).toEqual([]);
   });
+
+  it('should update the state whenever newlocation is called', () => {
+   const mockEvent = { target: {value: 'denver, co'} };
+
+   shallowWrapper.instance().newLocation(mockEvent);
+
+   expect(shallowWrapper.state('location')).toEqual('denver, co');
+ });
 });
