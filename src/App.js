@@ -8,7 +8,6 @@ import Key from "./key.js";
 import Search from "./Search.js";
 import { currWeather, sevenHour, tenDay } from "./helper.js";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,7 @@ class App extends Component {
   getData() {
     const url = `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
       this.state.location
-      }.json`;
+    }.json`;
 
     fetch(url)
       .then(data => data.json())
@@ -40,9 +39,9 @@ class App extends Component {
       .then(data => this.sendToLocalStorage(data))
       .catch(error => {
         localStorage.clear();
-        this.setState({searchInput: ""});
-        alert('Location entered not vaild, please enter valid location')
-      })
+        this.setState({ searchInput: "" });
+        alert("Location entered not vaild, please enter valid location");
+      });
   }
 
   locationChange(search) {
@@ -56,16 +55,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.incomingWeather)
-      this.locationChange(JSON.parse(localStorage.incomingWeather).location)
+    if (localStorage.incomingWeather) {
+      this.locationChange(JSON.parse(localStorage.incomingWeather).location);
+    }
   }
-
 
   render() {
     if (!this.state.location) {
       return (
         <div>
-           <link
+          <link
             href="https://fonts.googleapis.com/css?family=Raleway"
             rel="stylesheet"
           />

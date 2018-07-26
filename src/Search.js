@@ -18,7 +18,7 @@ class Search extends Component {
     event.preventDefault();
     this.props.dataFetch(this.state.searchInput);
     this.setState({
-      searchInput: "",
+      searchInput: ""
     });
   }
 
@@ -33,36 +33,34 @@ class Search extends Component {
 
   displayAutoSuggestions() {
     if (this.state.searchInput.length > 2) {
-      return (
-        this.state.autoCompleteResults.map(result => {
-          return <option value={result}></option>
-        }).slice(0, 15)
-      )
+      return this.state.autoCompleteResults
+        .map(result => {
+          return <option value={result} />;
+        })
+        .slice(0, 15);
     }
   }
 
   componentDidMount() {
     const prefixTrie = new PrefixTrie();
-    prefixTrie.populate(citiesList.data)
+
+    prefixTrie.populate(citiesList.data);
     this.setState({
       prefixTrie
-    })
+    });
   }
 
   autoCompleteResults() {
     const cityArray = this.state.prefixTrie.suggest(this.state.searchInput);
-    
+
     this.setState({
       autoCompleteResults: cityArray
-    })
+    });
   }
-
 
   render() {
     return (
-      <form
-        onSubmit={event => this.locationSubmit(event)
-        }>
+      <form onSubmit={event => this.locationSubmit(event)}>
         <input
           className="first-input"
           type="text"
@@ -73,14 +71,8 @@ class Search extends Component {
             this.handleChange(event);
           }}
         />
-        <datalist id="input-populate">
-          {this.displayAutoSuggestions()}
-        </datalist>
-        <button
-          className="search-button"
-        >
-          submit
-          </button>
+        <datalist id="input-populate">{this.displayAutoSuggestions()}</datalist>
+        <button className="search-button">submit</button>
       </form>
     );
   }
