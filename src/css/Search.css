@@ -5,7 +5,7 @@
   font-size: 1.5rem;
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 ::placeholder {
@@ -17,7 +17,7 @@
   background-color: rgba(0, 0, 0, 0.336);
   color: #ffffff;
   cursor: pointer;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   width: 6rem;
   height: 2rem;
   font-size: 1rem;

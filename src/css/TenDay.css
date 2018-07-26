@@ -11,18 +11,19 @@
   color: black;
   text-align: center;
   font-family: "Raleway", sans-serif;
-  background-color: #F8F8FF;
-
+  background-color: #f8f8ff;
 }
 
-h2, h3, p {
+h2,
+h3,
+p {
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .tenDay {
   border: 2px solid black;
-  width:  47rem;
+  width: 47rem;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -30,10 +31,8 @@ h2, h3, p {
   margin: auto;
 }
 
-
 @media (max-width: 770px) {
   .tenDay {
     width: 28rem;
-
   }
 }

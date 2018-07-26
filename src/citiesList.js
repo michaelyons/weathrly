@@ -1,5 +1,5 @@
 export default {
-  "data": [
+  data: [
     "New York, NY",
     "Los Angeles, CA",
     "Chicago, IL",
@@ -1001,4 +1001,4 @@ export default {
     "Beloit, WI",
     "Panama City, FL"
   ]
-}
+};
