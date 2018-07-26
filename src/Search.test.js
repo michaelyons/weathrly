@@ -20,9 +20,12 @@ describe('Search', () => {
     expect(mountWrapper).toBeDefined();
   })
 
-  it('should render and input and a button', () => {
-    expect(shallowWrapper.find('input').length).toEqual(1);
-    expect(shallowWrapper.find('button').length).toEqual(1);
+  it('should render one input', () => {
+    expect(shallowWrapper.find('input').length).toEqual(1)
+  })
+
+  it('should render one button', () => {
+    expect(shallowWrapper.find('button').length).toEqual(1)
   })
 
   it('should change the value within the input box', () => {
@@ -43,6 +46,40 @@ describe('Search', () => {
     searchBtn.simulate('submit', {preventDefault: () => {} });
 
     expect(mockCallBack).toHaveBeenCalled();
+  })
+
+  it('should have a default state of an empty string for search input', () => {
+    expect(shallowWrapper.state().searchInput).toEqual('')
+  })
+
+  it('should have a default state of an empty array for auto complete results', () => {
+    expect(shallowWrapper.state().autoCompleteResults).toEqual([])
+  })
+
+  it('should update search input state value to user input', () => {
+    mountWrapper.setState({ searchInput: '' })
+    mountWrapper.setState({ searchInput: 'Denver, CO'})
+    const mockCallBack = jest.fn();
+
+    let wrapperOne = shallow(<Search dataFetch={() => mockCallBack()} />)
+    let searchBtn = wrapperOne.find('form');
+  
+
+    searchBtn.simulate('submit', {preventDefault: () => {} });
+    expect(mountWrapper.state('searchInput')).toEqual('Denver, CO');
+  })
+
+  it('should update auto complete based on search', () => {
+    // mountWrapper.find('input').simulate('change', {target: {value: ''}});
+    mountWrapper.setState({ autoCompleteResults: '' })
+    mountWrapper.setState({ autoCompleteResults: 'Den'})
+
+    // expect(mountWrapper.state('searchInput')).toEqual(''); 
+
+
+    // mountWrapper.find('input').simulate('change', {target: {value: 'Den'}});
+    
+    expect(mountWrapper.state('autoCompleteResults')).toEqual([ "Denver, Co"]);
   })
 
 })
