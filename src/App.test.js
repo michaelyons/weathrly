@@ -1,7 +1,7 @@
 import React from 'react';
-import { configure , shallow, mount } from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
 import App from './App';
-import localStorage from './setupTests'
+// import localStorage from './setupTests'
 
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -39,10 +39,18 @@ describe('App', () => {
   })
 
   it('should render a Search, CurrentWeather, SevenHour, and TenDay components on default', () => {
-    shallowWrapper.instance().locationChange("80228");
+    shallowWrapper.setState({ location: "denver, co" })
+
     expect(shallowWrapper.find('Search').length).toEqual(1);
     expect(shallowWrapper.find('CurrentWeather').length).toEqual(1);
     expect(shallowWrapper.find('SevenHour').length).toEqual(1);
     expect(shallowWrapper.find('TenDay').length).toEqual(1);
+  })
+
+  it('should retrieve from local storage', () => {
+    localStorage.setItem("Location", "boulder, co");
+    let localLocation = localStorage.getItem("Location");
+    let mountWrapperTwo = mount(<App location={localLocation} />);
+    expect(mountWrapperTwo.props().location).toEqual('boulder, co');
   })
 });
