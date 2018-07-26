@@ -3,7 +3,7 @@
 A responsive weather forecasting application in React pulling from the Weather Underground API.
 
 Wireframes: 
-![weathrly sketch](./IMG_0130.jpg)
+![weathrly sketch](IMG_5433.jpeg)
 
 To install the dependencies:
 
