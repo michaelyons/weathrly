@@ -2,7 +2,7 @@
   font-size: 2rem;
   color: white;
   font-family: "Raleway", sans-serif;
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 .tenDayCard {
@@ -23,7 +23,7 @@ p {
 
 .tenDay {
   border: 2px solid black;
-  width: 47rem;
+  width: 46.3rem;
   display: flex;
   flex-direction: row;
   align-content: center;
