@@ -53,4 +53,31 @@ describe("App", () => {
 
     expect(mountWrapperTwo.props().location).toEqual("boulder, co");
   });
+
+  it('should set state with locationChange', () => {
+    const initialState = { 
+      location: '',
+      currWeather: {},
+      sevenHour: [],
+      tenDay: [] 
+    }
+
+    const expectedState = { 
+      location: 'Denver, CO',
+      currWeather: {},
+      sevenHour: [],
+      tenDay: [] 
+    }
+
+    expect(shallowWrapper.state()).toEqual(initialState)
+    shallowWrapper.instance().locationChange('Denver, CO')
+    expect(shallowWrapper.state()).toEqual(expectedState)
+  })
+
+  it('should call getData when invoked', () => {
+    const spy = jest.spyOn(shallowWrapper.instance(), 'getData');
+
+    shallowWrapper.instance().locationChange('Denver, CO');
+    expect(spy).toHaveBeenCalled();
+  })  
 });

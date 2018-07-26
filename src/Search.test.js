@@ -54,10 +54,11 @@ describe("Search", () => {
     expect(shallowWrapper.state().autoCompleteResults).toEqual([]);
   });
 
+  it('should update the state whenever newlocation is called', () => {
+   const mockEvent = { target: {value: 'denver, co'} };
 
-  it.skip('should update auto complete based on search', () => {
-    //upon autocomplete function running
-    //test option HTML element exists
-  });
+   shallowWrapper.instance().newLocation(mockEvent);
 
+   expect(shallowWrapper.state('location')).toEqual('denver, co');
+ });
 });
