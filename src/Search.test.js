@@ -53,11 +53,4 @@ describe("Search", () => {
   it('should have a default state of an empty array for auto complete results', () => {
     expect(shallowWrapper.state().autoCompleteResults).toEqual([]);
   });
-
-
-  it.skip('should update auto complete based on search', () => {
-    //upon autocomplete function running
-    //test option HTML element exists
-  });
-
 });
