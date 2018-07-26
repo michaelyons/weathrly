@@ -56,7 +56,7 @@ describe('Search', () => {
     expect(shallowWrapper.state().autoCompleteResults).toEqual([])
   })
 
-  it('should update state value to user input', () => {
+  it('should update search input state value to user input', () => {
     mountWrapper.setState({ searchInput: '' })
     mountWrapper.setState({ searchInput: 'Denver, CO'})
     const mockCallBack = jest.fn();
@@ -69,21 +69,17 @@ describe('Search', () => {
     expect(mountWrapper.state('searchInput')).toEqual('Denver, CO');
   })
 
-  // it('should update suggestion based on search', () => {
-  //   renderedLocation.find('input').simulate('change', {target: {value: ''}});
+  it('should update auto complete based on search', () => {
+    // mountWrapper.find('input').simulate('change', {target: {value: ''}});
+    mountWrapper.setState({ autoCompleteResults: '' })
+    mountWrapper.setState({ autoCompleteResults: 'Den'})
 
-  //   expect(renderedLocation.state('userInputLocation')).toEqual(''); 
+    // expect(mountWrapper.state('searchInput')).toEqual(''); 
 
 
-  //   renderedLocation.find('input').simulate('change', {target: {value: 'Bou'}});
+    // mountWrapper.find('input').simulate('change', {target: {value: 'Den'}});
     
-  //   expect(renderedLocation.state('suggestions')).toEqual([ "boulder, co", "bountiful, ut"]);
-  //   expect(renderedLocation.state('userInputLocation')).toEqual('Bou'); 
-  // })
+    expect(mountWrapper.state('autoCompleteResults')).toEqual([ "Denver, Co"]);
+  })
 
-  // it('should render the strings in the suggestion array', () => {
-  //   renderedLocation.setState({suggestions: ['item1', 'item2']});
-
-  //   expect(renderedLocation.find('option').length).toEqual(2);
-  // })
 })
