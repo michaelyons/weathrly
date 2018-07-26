@@ -55,8 +55,9 @@ describe("Search", () => {
   });
 
 
-  it('should update auto complete based on search', () => {
-   
+  it.skip('should update auto complete based on search', () => {
+    //upon autocomplete function running
+    //test option HTML element exists
   });
 
 });
