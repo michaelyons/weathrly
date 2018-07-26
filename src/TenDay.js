@@ -11,7 +11,7 @@ const TenDay = props => {
     <h2 className="tenDay-header">Ten Day Forecast</h2>
      <div className="tenDay">
       {tenCardsToDisplay}
-     </div>;
+     </div>
    </div>
   )
 };

@@ -12,7 +12,7 @@ const SevenHour = props => {
     <h2 className="sevenHour-header">Seven Hour Forecast</h2>
     <div className="sevenHour">
       {cardsToDisplay}
-    </div>;
+    </div>
    </div>
   )
 };
