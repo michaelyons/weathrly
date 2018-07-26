@@ -4,6 +4,7 @@ A responsive weather forecasting application in React pulling from the Weather U
 
 Wireframes: 
 ![weathrly sketch](./IMG_0130.jpg)
+![weathrly sketch](./IMG_5434.jpeg)
 
 To install the dependencies:
 
