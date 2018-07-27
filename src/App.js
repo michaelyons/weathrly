@@ -80,7 +80,7 @@ class App extends Component {
               href="https://fonts.googleapis.com/css?family=Raleway"
               rel="stylesheet"
             />
-            <h1 className="App-title">weathrly.</h1>
+            <h1 className="App-title">{this.state.location}</h1>
           </header>
           <Search dataFetch={e => this.locationChange(e)} />
           <CurrentWeather currWeather={this.state.currWeather} />
