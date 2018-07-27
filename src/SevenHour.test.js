@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import data from "./MockData";
-import { SevenHour } from "./SevenHour.js";
+import SevenHour from "./SevenHour.js";
 import { sevenHour } from "./helper.js";
 
 describe("SevenHour", () => {
@@ -20,7 +20,7 @@ describe("SevenHour", () => {
   });
 
   it("should create seven cards", () => {
-    expect(shallowWrapper.props().children.length).toEqual(8);
-    expect(mountWrapper.find("div").length).toEqual(9);
+    expect(mountWrapper.find("div").length).toEqual(10);
+    expect(mountWrapper.find("h2").length).toEqual(9);
   });
 });

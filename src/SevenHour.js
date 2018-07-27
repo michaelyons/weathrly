@@ -3,8 +3,8 @@ import Card from "./Card.js";
 import "./css/SevenHour.css";
 
 const SevenHour = props => {
-  const cardsToDisplay = props.sevenHour.map(hour => {
-    return <Card {...hour} />;
+  const cardsToDisplay = props.sevenHour.map((hour, index) => {
+    return <Card {...hour} key={index} />;
   });
 
   return (
