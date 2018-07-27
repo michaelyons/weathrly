@@ -20,12 +20,12 @@ describe("Search", () => {
     expect(mountWrapper).toBeDefined();
   });
 
-  it('should render one input', () => {
-    expect(shallowWrapper.find('input').length).toEqual(1);
+  it("should render one input", () => {
+    expect(shallowWrapper.find("input").length).toEqual(1);
   });
 
-  it('should render one button', () => {
-    expect(shallowWrapper.find('button').length).toEqual(1);
+  it("should render one button", () => {
+    expect(shallowWrapper.find("button").length).toEqual(1);
   });
 
   it("should change the value within the input box", () => {
@@ -46,19 +46,34 @@ describe("Search", () => {
     expect(mockCallBack).toHaveBeenCalled();
   });
 
-  it('should have a default state of an empty string for search input', () => {
-    expect(shallowWrapper.state().searchInput).toEqual('');
+  it("should have a default state of an empty string for search input", () => {
+    expect(shallowWrapper.state().searchInput).toEqual("");
   });
 
-  it('should have a default state of an empty array for auto complete results', () => {
+  it("should have a default state of an empty array for auto complete results", () => {
     expect(shallowWrapper.state().autoCompleteResults).toEqual([]);
   });
 
-  it('should update the state whenever newlocation is called', () => {
-   const mockEvent = { target: {value: 'denver, co'} };
+  it("should update the state whenever newlocation is called", () => {
+    const mockEvent = { target: { value: "denver, co" } };
 
-   shallowWrapper.instance().newLocation(mockEvent);
+    shallowWrapper.instance().newLocation(mockEvent);
 
-   expect(shallowWrapper.state('location')).toEqual('denver, co');
- });
+    expect(shallowWrapper.state("location")).toEqual("denver, co");
+  });
+
+  it("should make suggestions based on user inputs", () => {
+    let input = shallowWrapper.find(".first-input");
+    let event = { target: { value: "den" } };
+
+    input.simulate("change", event);
+
+    let dataSuggestions = shallowWrapper.find("datalist");
+
+    let suggestMap = dataSuggestions
+      .props()
+      .children.map(prop => prop.props.value);
+
+    expect(suggestMap).toEqual(["denver, co", "denton, tx"]);
+  });
 });
