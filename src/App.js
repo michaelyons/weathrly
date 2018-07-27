@@ -18,10 +18,16 @@ class App extends Component {
       tenDay: []
     };
 
-    this.getData = this.getData.bind(this);
+    this.fetchWeatherData = this.fetchWeatherData.bind(this);
   }
 
-  getData() {
+  componentDidMount() {
+    if (localStorage.incomingWeather) {
+      this.locationChange(JSON.parse(localStorage.incomingWeather).location);
+    }
+  }
+  
+  fetchWeatherData() {
     const url = `http://api.wunderground.com/api/${Key}/geolookup/conditions/hourly/forecast10day/q/${
       this.state.location
     }.json`;
@@ -45,7 +51,7 @@ class App extends Component {
   }
 
   locationChange(search) {
-    this.setState({ location: search }, this.getData);
+    this.setState({ location: search }, this.fetchWeatherData);
   }
 
   sendToLocalStorage() {
@@ -54,11 +60,6 @@ class App extends Component {
     localStorage.setItem("incomingWeather", outgoingWeather);
   }
 
-  componentDidMount() {
-    if (localStorage.incomingWeather) {
-      this.locationChange(JSON.parse(localStorage.incomingWeather).location);
-    }
-  }
 
   render() {
     if (!this.state.location) {

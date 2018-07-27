@@ -6,12 +6,21 @@ import citiesList from "./citiesList.js";
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.locationSubmit = this.locationSubmit.bind(this);
-    this.newLocation = this.newLocation.bind(this);
     this.state = {
       searchInput: "",
       autoCompleteResults: []
     };
+    this.locationSubmit = this.locationSubmit.bind(this);
+    this.setNewLocation = this.setNewLocation.bind(this);
+  }
+
+  componentDidMount() {
+    const prefixTrie = new PrefixTrie();
+
+    prefixTrie.populate(citiesList.data);
+    this.setState({
+      prefixTrie
+    });
   }
 
   locationSubmit(event) {
@@ -22,12 +31,12 @@ class Search extends Component {
     });
   }
 
-  handleChange(event) {
+  updateUserInputState(event) {
     this.setState({ searchInput: event.target.value });
     this.autoCompleteResults();
   }
 
-  newLocation(event) {
+  setNewLocation(event) {
     this.setState({ location: event.target.value });
   }
 
@@ -41,14 +50,6 @@ class Search extends Component {
     }
   }
 
-  componentDidMount() {
-    const prefixTrie = new PrefixTrie();
-
-    prefixTrie.populate(citiesList.data);
-    this.setState({
-      prefixTrie
-    });
-  }
 
   autoCompleteResults() {
     const cityArray = this.state.prefixTrie.suggest(this.state.searchInput);
@@ -68,7 +69,7 @@ class Search extends Component {
           value={this.state.searchInput}
           placeholder="enter city, state/zip code"
           onChange={event => {
-            this.handleChange(event);
+            this.updateUserInputState(event);
           }}
         />
         <datalist id="input-populate">{this.displayAutoSuggestions()}</datalist>
