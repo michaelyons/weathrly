@@ -20,7 +20,7 @@ describe("TenDay", () => {
   });
 
   it("should create ten cards", () => {
-    expect(shallowWrapper.props().children.length).toEqual(8);
-    expect(mountWrapper.find("div").length).toEqual(9);
+    expect(mountWrapper.find("div").length).toEqual(12);
+    expect(mountWrapper.find("h2").length).toEqual(31);
   });
 });
